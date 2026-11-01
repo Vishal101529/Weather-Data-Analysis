@@ -1,34 +1,49 @@
-import numpy as np
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Weather Data Analysis Project
+# Load weather dataset
+df = pd.read_csv('/content/weather.csv')
 
-# Create sample weather data
-data = {
-    "Day": np.arange(1, 8),
-    "Temperature": [28, 30, 32, 29, 31, 27, 33],
-    "Humidity": [65, 70, 60, 75, 68, 80, 55],
-    "Rainfall": [2, 0, 5, 3, 1, 8, 0]
-}
-
-df = pd.DataFrame(data)
-
-# Display weather data
+# Display dataset
 print("Weather Data:")
 print(df)
 
-# Calculate statistics
-print("\nAverage Temperature:", np.mean(df["Temperature"]))
-print("Maximum Temperature:", np.max(df["Temperature"]))
-print("Minimum Temperature:", np.min(df["Temperature"]))
-print("Average Humidity:", np.mean(df["Humidity"]))
-print("Total Rainfall:", np.sum(df["Rainfall"]))
+# Statistical analysis
+print("\nWeather Statistics:")
+print(df.describe())
 
-# Plot temperature
-plt.plot(df["Day"], df["Temperature"], marker="o")
-plt.title("Weekly Temperature Analysis")
+print("\nAverage Temperature:", df['Temperature'].mean())
+print("Maximum Temperature:", df['Temperature'].max())
+print("Minimum Temperature:", df['Temperature'].min())
+print("Average Humidity:", df['Humidity'].mean())
+print("Total Rainfall:", df['Rainfall'].sum())
+
+# Temperature Analysis
+plt.figure(figsize=(8, 5))
+plt.plot(df['Day'], df['Temperature'], marker='o')
+plt.title("Daily Temperature Analysis")
 plt.xlabel("Day")
 plt.ylabel("Temperature (°C)")
 plt.grid()
+plt.savefig('/content/temperature.png')
+plt.show()
+
+# Humidity Analysis
+plt.figure(figsize=(8, 5))
+plt.plot(df['Day'], df['Humidity'], marker='o')
+plt.title("Daily Humidity Analysis")
+plt.xlabel("Day")
+plt.ylabel("Humidity (%)")
+plt.grid()
+plt.savefig('/content/humidity.png')
+plt.show()
+
+# Rainfall Analysis
+plt.figure(figsize=(8, 5))
+plt.bar(df['Day'], df['Rainfall'])
+plt.title("Daily Rainfall Analysis")
+plt.xlabel("Day")
+plt.ylabel("Rainfall")
+plt.savefig('/content/rainfall.png')
 plt.show()
