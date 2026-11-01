@@ -1,4 +1,4 @@
-
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -9,15 +9,15 @@ df = pd.read_csv('/content/weather.csv')
 print("Weather Data:")
 print(df)
 
-# Statistical analysis
+# Statistical Analysis using NumPy
 print("\nWeather Statistics:")
 print(df.describe())
 
-print("\nAverage Temperature:", df['Temperature'].mean())
-print("Maximum Temperature:", df['Temperature'].max())
-print("Minimum Temperature:", df['Temperature'].min())
-print("Average Humidity:", df['Humidity'].mean())
-print("Total Rainfall:", df['Rainfall'].sum())
+print("\nAverage Temperature:", np.mean(df["Temperature"]))
+print("Maximum Temperature:", np.max(df["Temperature"]))
+print("Minimum Temperature:", np.min(df["Temperature"]))
+print("Average Humidity:", np.mean(df["Humidity"]))
+print("Total Rainfall:", np.sum(df["Rainfall"]))
 
 # Temperature Analysis
 plt.figure(figsize=(8, 5))
