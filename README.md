@@ -1,8 +1,7 @@
 # Weather Data Analysis
 
 ## About the Project
-This project performs basic weather data analysis using Python and its popular libraries.
-
+This project performs weather data analysis using Python and popular libraries such as NumPy, Pandas, and Matplotlib. NumPy is used for statistical calculations, Pandas for data handling, and Matplotlib for data visualization.
 ## Technologies Used
 - Python
 - NumPy
